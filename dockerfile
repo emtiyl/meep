@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM bionic
 
 # Nimbix image-common desktop
 RUN apt-get -y update && \
