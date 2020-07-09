@@ -8,7 +8,7 @@ RUN apt-get -y update && \
         | bash -s -- --setup-nimbix-desktop
 
 #install meeps
-RUN apt-get install meep h5utils
+RUN apt-get -y install meep h5utils
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
