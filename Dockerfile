@@ -6,6 +6,7 @@ ENV MY_CPPFLAGS="-I/usr/local/include -I/usr/include/hdf5/openmpi"
 
 RUN apt-get update && apt-get -y install \
     build-essential \
+    openmpi-bin \
     gfortran \
     libblas-dev \
     liblapack-dev \
