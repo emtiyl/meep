@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 
-RUN mkdir -p /where/to/install/meep &&\
-    cd /where/to/install/meep &&\
+RUN mkdir -p ~/meep &&\
+    cd ~/meep &&\
     wget https://raw.githubusercontent.com/NanoComp/meep/master/contrib/build-meep.sh &&\
     chmod +x build-meep.sh &&\
     ./build-meep.sh
