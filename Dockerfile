@@ -72,11 +72,11 @@ RUN mkdir -p ~/install &&\
 ENV PYTHONPATH="/usr/local/lib/python3.6/site-packages:/usr/local/lib/python3/dist-packages"
 
 # Nimbix image-common desktop
-RUN apt-get -y update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install curl && \
-    curl -H 'Cache-Control: no-cache' \
-        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
-        | bash -s -- --setup-nimbix-desktop
+#RUN apt-get -y update && \
+#    DEBIAN_FRONTEND=noninteractive apt-get -y install curl && \
+#    curl -H 'Cache-Control: no-cache' \
+#        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
+#        | bash -s -- --setup-nimbix-desktop
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
