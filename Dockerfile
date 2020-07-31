@@ -3,6 +3,7 @@ FROM ubuntu:bionic
 ENV RPATH_FLAGS="-Wl,-rpath,/usr/local/lib:/usr/lib/x86_64-linux-gnu/hdf5/openmpi"
 ENV MY_LDFLAGS="-L/usr/local/lib -L/usr/lib/x86_64-linux-gnu/hdf5/openmpi ${RPATH_FLAGS}"
 ENV MY_CPPFLAGS="-I/usr/local/include -I/usr/include/hdf5/openmpi"
+ENV PYTHONPATH "${PYTHONPATH}:/usr/local/lib/python3/dist-packages"
 
 RUN apt-get update && apt-get -y install \
     build-essential \
@@ -59,8 +60,6 @@ RUN mkdir -p ~/install &&\
     pip3 install --user scipy &&\
     pip3 install --user matplotlib>3.0.0 &&\
     pip3 install --user ffmpeg &&\
-    pip3 install --user numpy &&\
-    pip3 install --user mpi4py &&\
     cd ~/install &&\
     git clone git://github.com/stevengj/nlopt.git &&\
     cd nlopt/ &&\
@@ -70,8 +69,8 @@ RUN mkdir -p ~/install &&\
     cd meep/ &&\
     sh autogen.sh --enable-shared --with-mpi --with-openmp PYTHON=python3 LDFLAGS="${MY_LDFLAGS}" CPPFLAGS="${MY_CPPFLAGS}" &&\
     make && make install 
-
-ENV PYTHONPATH "${PYTHONPATH}:/usr/local/lib/python3/dist-packages"
+RUN pip3 install numpy &&\
+    pip3 install mpi4py 
 
 # Nimbix image-common desktop
 #RUN apt-get -y update && \
