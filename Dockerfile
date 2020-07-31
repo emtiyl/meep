@@ -81,4 +81,5 @@ RUN pip3 install numpy &&\
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
-ENV PYTHONPATH "/usr/local/lib/python3.6/site-packages:/usr/local/lib/python3/dist-packages"
+#ENV PYTHONPATH "/usr/local/lib/python3.6/site-packages:/usr/local/lib/python3/dist-packages"
+RUN export PYTHONPATH=/usr/local/lib/python3.6/site-packages:/usr/local/lib/python3/dist-packages
