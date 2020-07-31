@@ -58,7 +58,9 @@ RUN mkdir -p ~/install &&\
     pip3 install --user autograd &&\
     pip3 install --user scipy &&\
     pip3 install --user matplotlib>3.0.0 &&\
-    pip3 install --user ffmpeg &&\  
+    pip3 install --user ffmpeg &&\
+    pip3 install --user numpy &&\
+    pip3 install --user mpi4py &&\
     cd ~/install &&\
     git clone git://github.com/stevengj/nlopt.git &&\
     cd nlopt/ &&\
@@ -69,7 +71,7 @@ RUN mkdir -p ~/install &&\
     sh autogen.sh --enable-shared --with-mpi --with-openmp PYTHON=python3 LDFLAGS="${MY_LDFLAGS}" CPPFLAGS="${MY_CPPFLAGS}" &&\
     make && make install 
 
-ENV PYTHONPATH="/usr/local/lib/python3.6/site-packages:/usr/local/lib/python3/dist-packages"
+ENV PYTHONPATH "${PYTHONPATH}:/usr/local/lib/python3/dist-packages"
 
 # Nimbix image-common desktop
 #RUN apt-get -y update && \
