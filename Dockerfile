@@ -52,14 +52,14 @@ RUN mkdir -p ~/install &&\
     cd libGDSII/ &&\
     sh autogen.sh &&\
     make && make install &&\
-    pip3 install --user --no-cache-dir mpi4py &&\
-    pip3 install --user Cython==0.29.16 &&\
+    pip3 install --no-cache-dir mpi4py &&\
+    pip3 install Cython==0.29.16 &&\
     export HDF5_MPI="ON" &&\
-    pip3 install --user --no-binary=h5py h5py &&\
-    pip3 install --user autograd &&\
-    pip3 install --user scipy &&\
-    pip3 install --user matplotlib>3.0.0 &&\
-    pip3 install --user ffmpeg &&\
+    pip3 install --no-binary=h5py h5py &&\
+    pip3 install autograd &&\
+    pip3 install scipy &&\
+    pip3 install matplotlib>3.0.0 &&\
+    pip3 install ffmpeg &&\
     cd ~/install &&\
     git clone git://github.com/stevengj/nlopt.git &&\
     cd nlopt/ &&\
