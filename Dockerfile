@@ -3,7 +3,7 @@ FROM ubuntu:bionic
 ENV RPATH_FLAGS="-Wl,-rpath,/usr/local/lib:/usr/lib/x86_64-linux-gnu/hdf5/openmpi"
 ENV MY_LDFLAGS="-L/usr/local/lib -L/usr/lib/x86_64-linux-gnu/hdf5/openmpi ${RPATH_FLAGS}"
 ENV MY_CPPFLAGS="-I/usr/local/include -I/usr/include/hdf5/openmpi"
-ENV PYTHONPATH "${PYTHONPATH}:/usr/local/lib/python3/dist-packages"
+
 
 RUN apt-get update && apt-get -y install \
     build-essential \
@@ -81,3 +81,4 @@ RUN pip3 install numpy &&\
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
+ENV PYTHONPATH "${PYTHONPATH}:/usr/local/lib/python3/dist-packages"
