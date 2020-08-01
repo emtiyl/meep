@@ -73,15 +73,11 @@ RUN mkdir -p ~/install &&\
 RUN pip3 install numpy &&\
     pip3 install mpi4py 
 
-# Nimbix image-common desktop
-#RUN apt-get -y update && \
-#    DEBIAN_FRONTEND=noninteractive apt-get -y install curl && \
-#    curl -H 'Cache-Control: no-cache' \
-#        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
-#        | bash -s -- --setup-nimbix-desktop
+RUN apt-get -y update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install curl && \
+    curl -H 'Cache-Control: no-cache' \
+        https://raw.githubusercontent.com/nimbix/image-common/master/install-nimbix.sh \
+        | bash
 
 # Expose port 22 for local JARVICE emulation in docker
 EXPOSE 22
-
-ADD ./sourcefile /tmp   
-RUN source /tmp/sourcefile
