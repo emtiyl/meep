@@ -72,7 +72,10 @@ RUN mkdir -p ~/install &&\
     make && make install 
 RUN pip3 install numpy &&\
     pip3 install mpi4py 
+    
+ADD ./sourcefile /tmp 
 
+#Nimbix Image Common
 RUN apt-get -y update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y install curl && \
     curl -H 'Cache-Control: no-cache' \
